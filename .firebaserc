@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "violin-pro": {
+      "hosting": {
+        "angular-tour-of-heroes": [
+          "violin-pro"
+        ]
+      }
+    }
+  }
+}

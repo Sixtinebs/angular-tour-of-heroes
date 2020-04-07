@@ -1,0 +1,53 @@
+<h3>Create Order(dashboard)</h3>
+
+<!-- <div class="grid grid-pad">
+  <a *ngFor="let item of items | async" class="col-1-4"
+      routerLink="/detail/{{item.id}}">
+    <div class="module hero">
+      <h4>{{item.name}}</h4>
+    </div>
+  </a>
+</div> -->
+
+<form [formGroup]="this.heroService.form" (ngSubmit)="onSubmit()">
+  <input placeholder="Order Number" 
+         formControlName="orderNumber" 
+         type="text" 
+         class="input-field col s12">
+  <input placeholder="Customer Name" 
+         formControlName="customerName" 
+         type="text" 
+         class="input-field col s12">
+
+
+  <button type="button" class="waves-effect waves-light btn col s4" 
+    *ngFor="let coffee of coffees" 
+    (click)="addCoffee(coffee)">
+    {{ coffee.coffeeType }} {{ coffee.price}} €
+  </button>
+
+  
+
+  <button type="button"
+    class="waves-effect waves-light btn col s12" 
+    (click)="onSubmit()">
+    Submit
+  </button>
+
+ 
+
+  <ul class="collection">
+    <li *ngFor="let coffee of coffeeOrder">
+      <span class="col s11"> {{ coffee.coffeeType }} {{ coffee.price}} € </span>
+      <a class="col s1" (click)="removeCoffee(coffee)">x</a>
+    </li>
+  </ul>
+
+</form>
+
+
+
+
+
+
+<!-- <app-hero-search></app-hero-search> -->

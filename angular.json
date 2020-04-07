@@ -121,8 +121,13 @@
               "devServerTarget": "angular-tour-of-heroes:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular-tour-of-heroes"
 }

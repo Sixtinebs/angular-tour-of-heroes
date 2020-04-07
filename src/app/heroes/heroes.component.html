@@ -1,0 +1,67 @@
+<h2>My Orders(heroes)</h2>
+
+<!-- <div>
+  <label>Hero name:
+    <input #heroName />
+  </label> -->
+  <!-- (click) passes input value to add() and then clears the input -->
+  <!-- <button (click)="add(heroName.value); heroName.value=''">
+    add
+  </button>
+</div>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes | async">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}} -->
+        <!-- <button class="delete" title="delete hero"
+        (click)="delete(hero)">x</button> -->
+    <!-- </a> 
+
+  </li>
+</ul> -->
+<div>
+<table class="striped">
+  <thead>
+    <tr>
+        <th>Order Number</th>
+        <th>Customer Name</th>
+        <th>Coffe Order</th>
+        <th>TotalPrice</th>
+        <th>Complete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of coffeeOrders | async">
+      <td>{{ order.payload.doc.data().orderNumber }}</td>
+      <td>{{ order.payload.doc.data().customerName }}</td>
+
+      <td><span 
+        *ngFor="let coffee of order.payload.doc.data().coffeeOrder">
+        {{ coffee.coffeeType }} {{ coffee.price}} 
+        </span>
+      </td>
+
+      <td><span 
+        *ngFor="let coffee of order.payload.doc.data().coffeeOrder">
+        {{ coffee.price }} €
+        </span>
+      </td>
+
+       <td [hidden]="order.payload.doc.data().completed" 
+       (click)="markCompleted(order)">
+      <i class="material-icons">check</i>
+      </td>
+
+      <td [hidden]="order.payload.doc.data().completed" 
+      (click)="deleteOrder(order)">
+     <i class="material-icons">delete_forever</i>
+     </td>
+
+    </tr>
+    </tbody>
+
+</table>
+</div>
+
+
+
